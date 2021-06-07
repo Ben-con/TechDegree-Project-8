@@ -91,6 +91,8 @@ function displayModal(index){
     `
     overlay.classList.remove('hidden')
     modalContainer.innerHTML = modalHtML
+    // Help here 
+    
     const rightArrow = document.querySelector('.left-arrow')
     const leftArrow = document.querySelector('.right-arrow')    
     console.log(leftArrow)
