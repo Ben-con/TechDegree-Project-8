@@ -5,12 +5,15 @@ const gridCon = document.querySelector('.grid-container')
 const overlay = document.querySelector('.overlay')
 const modalContainer = document.querySelector('.modal-content')
 const modalClose = document.querySelector('.modal-close')
+const search = document.querySelector('.searchbar')
 
 fetch(APIUrl)
 .then(res => res.json())
 .then(res => res.results)
 .then(displayEmployees)
 .then(err => console.log(err))
+
+
 
 function displayEmployees(employeeData){
    employees = employeeData
@@ -26,7 +29,7 @@ function displayEmployees(employeeData){
     employeeHTML += 
    ` <div class="card" data-index="${index}">
          <img class="avatar" src="${picture.large}" alt="">
-         <div class="text-container">
+         <div class="text-container1">
              <h2 class="name">${name.first} ${name.last}</h2>
              <p class="email">${email}</p>
              <p class="address">${city}</p>
@@ -36,6 +39,7 @@ function displayEmployees(employeeData){
     
    });
    gridCon.innerHTML = employeeHTML
+   
 }
 
 function displayModal(index){
@@ -45,7 +49,7 @@ function displayModal(index){
 
     const modalHtML = `
     <img class="avatar" src="${picture.large}" alt="">
-    <div class="text-container">
+    <div class="text-container2">
         <h2 class="name">${name.first} ${name.last}</h2>
         <p class="email">${email}</p>
         <p class="address">${city}</p>
@@ -67,4 +71,8 @@ gridCon.addEventListener('click', e =>  {
     }
 
 })
+modalClose.addEventListener('click', ()=> {
+    overlay.classList.add('hidden')
+})
+
 
