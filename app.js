@@ -91,23 +91,13 @@ function displayModal(index){
     `
     overlay.classList.remove('hidden')
     modalContainer.innerHTML = modalHtML
-    // Help here 
     
-    const rightArrow = document.querySelector('.left-arrow')
-    const leftArrow = document.querySelector('.right-arrow')    
-    console.log(leftArrow)
-    rightArrow.addEventListener('click', e =>  {
-        const cards = document.querySelectorAll('.card')
-        for(i=0;i<cards.length;i++){
+    
+    
         
-        const card = cards[i];
-        console.log(cards[i])
-        const index = card.getAttribute('data-index')
-        displayModal(index)
-        }
 
-})
 }
+
 
 gridCon.addEventListener('click', e =>  {
     if (e.target !== gridCon){
@@ -124,10 +114,10 @@ modalClose.addEventListener('click', ()=> {
 
 
 
+
+
     
 
 
-
-    
 
 
