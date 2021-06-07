@@ -41,7 +41,7 @@ function displayEmployees(employeeData){
 function displayModal(index){
     let{ name, dob, phone, email, location:{ city, street, state, postcode},picture,} =employees[index];
 
-    let date = new date(dob.date)
+    let date = new Date(dob.date)
 
     const modalHtML = `
     <img class="avatar" src="${picture.large}" alt="">
@@ -52,7 +52,7 @@ function displayModal(index){
         <hr />
         <p>${phone}</p>
         <p class="address"> ${street.name},${state.name},${postcode.name}</p>
-        <p>${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p></p>
+        <p>${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
     </div>
     `
     overlay.classList.remove('hidden')
