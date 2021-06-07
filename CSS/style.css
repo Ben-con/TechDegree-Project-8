@@ -73,3 +73,17 @@ padding: 30px 20px;
 .avatar{
     border-radius: 5em;
 }
+
+.left-arrow,.right-arrow{
+    position: absolute;
+    top: 50%;
+}
+
+.left-arrow{
+    right: 30px;
+}
+
+.right-arrow{
+    left: 30px;
+
+}
