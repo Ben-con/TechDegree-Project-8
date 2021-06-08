@@ -79,8 +79,8 @@ function displayModal(index){
     const modalHtML = `
     <img class="avatar" src="${picture.large}" alt="">
     <div class="text-container2">
-        <span class="left-arrow">></span>
-        <span class="right-arrow"> <</span>
+        <span class="right-arrow"><</span>
+        <span class="left-arrow"> ></span>
         <h2 class="name">${name.first} ${name.last}</h2>
         <p class="email">${email}</p>
         <p class="address">${city}</p>
@@ -109,7 +109,8 @@ gridCon.addEventListener('click', e =>  {
     if (e.target !== gridCon){
         const card = e.target.closest('.card');
         const index = card.getAttribute('data-index')
-        move = index
+        move = parseInt(index);
+
         
         console.log(move)
         displayModal(index)
@@ -126,31 +127,32 @@ modalClose.addEventListener('click', ()=> {
 overlay.addEventListener('click', (event) =>{
     
     if(event.target.className === 'left-arrow') {
-        move ++;
-        displayModal(move)
-        if(move ===  11){
-        
-            move = 0
-            displayModal(move)
-     }
-        
-        console.log(move)
-    }
+      
+        if ( move === 11 ) {
+          displayModal(0);
+          move++;
+        } else {
+          move++;
+          displayModal(move);
+        }
+          
+      }
+   
     
     
+      if(event.target.className === 'right-arrow') {
+      
+        if ( move === 0 ) {
+          displayModal(11);
+          move--;
+        } else {
+          move--;
+          displayModal(move);
+        }
+          
+      }
+   
     
-    
-    if(event.target.className === 'right-arrow') {
-        move --;
-        displayModal(move)
-        
-        console.log(move)
-    }
-    if(move === 0){
-        
-        move = 12
-            displayModal(move)
- }
    
 })
 
