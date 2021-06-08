@@ -129,7 +129,8 @@ overlay.addEventListener('click', (event) =>{
     if(event.target.className === 'left-arrow') {
       
         if ( move === 11 ) {
-          displayModal(0);
+          move = 0;
+          displayModal(move);
           move++;
         } else {
           move++;
@@ -143,7 +144,8 @@ overlay.addEventListener('click', (event) =>{
       if(event.target.className === 'right-arrow') {
       
         if ( move === 0 ) {
-          displayModal(11);
+          move = 11;
+          displayModal(move);
           move--;
         } else {
           move--;
