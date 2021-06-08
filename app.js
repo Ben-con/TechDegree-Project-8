@@ -160,24 +160,7 @@ overlay.addEventListener('click', (event) =>{
 
 
 
-// modalOverlay.addEventListener('click', (event) => {
-//     if(event.target.className === 'right-arrow') {
-//         let indexPosition = parseInt(modalOverlay
-//         .firstElementChild.getAttribute('data-index'));
-//         indexPosition += 1;
-//         if (indexPosition < 12) {
-//             modal(employees[indexPosition], indexPosition);
-//         }
-//     }
-//     if(event.target.className === 'left-arrow') {
-//         let indexPosition = parseInt(modalOverlay.
-//         firstElementChild.getAttribute('data-index'));
-//         indexPosition -= 1;
-//         if (indexPosition > -1) {
-//             modal(employees[indexPosition], indexPosition);
-//         }
-//     }
-// });
+
 
 
 
