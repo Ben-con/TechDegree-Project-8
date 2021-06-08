@@ -90,11 +90,19 @@ function displayModal(index){
     </div>
     `
     overlay.classList.remove('hidden')
-    modalContainer.innerHTML = modalHtML
+    modalContainer.innerHTML = modalHtML;
+    const rightArrow = document.querySelector('.left-arrow')  ;
+    const leftArrow = document.querySelector('.right-arrow');
+
+    console.log(rightArrow)
+    console.log(leftArrow)
     
-    
-    
-        
+   rightArrow.addEventListener('click', () =>{
+        move = index
+        move = move 
+       console.log(move)
+       
+   })
 
 }
 
