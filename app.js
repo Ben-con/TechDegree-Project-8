@@ -78,8 +78,8 @@ function displayModal(index){
     const modalHtML = `
     <img class="avatar" src="${picture.large}" alt="">
     <div class="text-container2">
-        <h1 class="left-arrow">></h1>
-        <h1 class="right-arrow"> <</h1>
+        <span class="left-arrow">></span>
+        <span class="right-arrow"> <</span>
         <h2 class="name">${name.first} ${name.last}</h2>
         <p class="email">${email}</p>
         <p class="address">${city}</p>
@@ -91,18 +91,11 @@ function displayModal(index){
     `
     overlay.classList.remove('hidden')
     modalContainer.innerHTML = modalHtML;
-    const rightArrow = document.querySelector('.left-arrow')  ;
-    const leftArrow = document.querySelector('.right-arrow');
+   
 
-    console.log(rightArrow)
-    console.log(leftArrow)
+   
     
-   rightArrow.addEventListener('click', () =>{
-        move = index
-        move = move 
-       console.log(move)
-       
-   })
+  
 
 }
 
@@ -111,16 +104,69 @@ gridCon.addEventListener('click', e =>  {
     if (e.target !== gridCon){
         const card = e.target.closest('.card');
         const index = card.getAttribute('data-index')
+        move = index
+        console.log(move)
         displayModal(index)
     }
-
+       
 })
 
 modalClose.addEventListener('click', ()=> {
     overlay.classList.add('hidden')
 })
 
+overlay.addEventListener('click', (event) =>{
+    
+    if(event.target.className === 'left-arrow') {
+        move ++;
+        displayModal(move)
+        
+        console.log(move)
+    }
+    if(move > 10){
+        
+           const leftarrow = document.querySelector('.left-arrow')
+           leftarrow.classList.add('hidden')
+           console.log(leftarrow)
+    }
 
+    
+    
+    if(event.target.className === 'right-arrow') {
+        move --;
+        displayModal(move)
+        
+        console.log(move)
+    }
+    if(move === 0){
+        
+        const rightarrow = document.querySelector('.right-arrow')
+        rightarrow.classList.add('hidden')
+        console.log(rightarrow)
+ }
+   
+})
+
+
+
+// modalOverlay.addEventListener('click', (event) => {
+//     if(event.target.className === 'right-arrow') {
+//         let indexPosition = parseInt(modalOverlay
+//         .firstElementChild.getAttribute('data-index'));
+//         indexPosition += 1;
+//         if (indexPosition < 12) {
+//             modal(employees[indexPosition], indexPosition);
+//         }
+//     }
+//     if(event.target.className === 'left-arrow') {
+//         let indexPosition = parseInt(modalOverlay.
+//         firstElementChild.getAttribute('data-index'));
+//         indexPosition -= 1;
+//         if (indexPosition > -1) {
+//             modal(employees[indexPosition], indexPosition);
+//         }
+//     }
+// });
 
 
 
