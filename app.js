@@ -74,6 +74,7 @@ function displayModal(index){
     let{ name, dob, phone, email, location:{ city, street, state, postcode},picture,} =employees[index];
 
     let date = new Date(dob.date)
+    
 
     const modalHtML = `
     <img class="avatar" src="${picture.large}" alt="">
@@ -89,8 +90,12 @@ function displayModal(index){
         <p>${date.getMonth()}/${date.getDate()}/${date.getFullYear()}</p>
     </div>
     `
+   
     overlay.classList.remove('hidden')
+    
+    
     modalContainer.innerHTML = modalHtML;
+    
    
 
    
@@ -105,8 +110,11 @@ gridCon.addEventListener('click', e =>  {
         const card = e.target.closest('.card');
         const index = card.getAttribute('data-index')
         move = index
+        
         console.log(move)
         displayModal(index)
+        
+        
     }
        
 })
@@ -120,16 +128,16 @@ overlay.addEventListener('click', (event) =>{
     if(event.target.className === 'left-arrow') {
         move ++;
         displayModal(move)
+        if(move ===  11){
+        
+            move = 0
+            displayModal(move)
+     }
         
         console.log(move)
     }
-    if(move > 10){
-        
-           const leftarrow = document.querySelector('.left-arrow')
-           leftarrow.classList.add('hidden')
-           console.log(leftarrow)
-    }
-
+    
+    
     
     
     if(event.target.className === 'right-arrow') {
@@ -140,9 +148,8 @@ overlay.addEventListener('click', (event) =>{
     }
     if(move === 0){
         
-        const rightarrow = document.querySelector('.right-arrow')
-        rightarrow.classList.add('hidden')
-        console.log(rightarrow)
+        move = 12
+            displayModal(move)
  }
    
 })
